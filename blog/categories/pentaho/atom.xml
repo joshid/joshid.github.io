@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pentaho | Dynambi]]></title>
   <link href="http://joshid.github.io/blog/categories/pentaho/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-08T23:57:14+02:00</updated>
+  <updated>2014-10-08T23:58:51+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -78,19 +78,23 @@ Your final Job will look as the following image:</p>
 
 <p>Next step is where &ldquo;magic&rdquo; happens. We&rsquo;re going to use PhantomJS to render our PDF file. The step execute a shell script with following code:</p>
 
-<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib\phantomjs.exe rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code>
-in case of Windows branch</p>
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib\phantomjs.exe rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code></p>
 
-<p><code>./phantomjs rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code>
-in case of Linux branch</p>
+<p>in case of Windows branch</p>
+
+<p><code>./phantomjs rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code></p>
+
+<p>in case of Linux branch</p>
 
 <p>We must to set Working Directory in the step to</p>
 
-<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib</code>
-in case of Windows</p>
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib</code></p>
 
-<p><code>${PENTAHO_FOLDER}/tomcat/webapps/pentaho/phantomjs-lib</code>
-in case of Linux</p>
+<p>in case of Windows</p>
+
+<p><code>${PENTAHO_FOLDER}/tomcat/webapps/pentaho/phantomjs-lib</code></p>
+
+<p>in case of Linux</p>
 ]]></content>
   </entry>
   
