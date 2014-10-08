@@ -4,7 +4,7 @@
   <title><![CDATA[Dynambi]]></title>
   <link href="http://joshid.github.io/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-08T23:13:27+02:00</updated>
+  <updated>2014-10-08T23:57:14+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -24,7 +24,7 @@
 
 <p>In order to export our dashboards to PDF we only need the endpoint part but we&rsquo;ll build a small dashboard so we can test the endpoint.</p>
 
-<p>First of all you must install Sparkl using Pentaho Marketplace. Be sure to install dependencies: CDF, CDA, CDE and CGG. <em>It&rsquo;s recommended to have installed same version of CTools (14.07.29 STABLE in my case)</em></p>
+<p>First of all you must install Sparkl using Pentaho Marketplace. Be sure to install dependencies: CDF, CDA, CDE and CGG. <em>It&rsquo;s recommended to have installed same versions of CTools (14.07.29 STABLE in my case)</em></p>
 
 <p><img src="http://joshid.github.io/images/pdf-export/Pentaho-Marketplace.png" title="Pentaho Marketplace" alt="Pentaho Marketplace" /></p>
 
@@ -32,7 +32,7 @@
 
 <p><img src="http://joshid.github.io/images/pdf-export/Sparkl-menu.png" title="Sparkl menu" alt="Sparkl menu" /></p>
 
-<p>Now you have initial Sparkl desktop with a default aplication:</p>
+<p>Now you&rsquo;ll see the initial Sparkl desktop with a default aplication:</p>
 
 <p><img src="http://joshid.github.io/images/pdf-export/sparkl-desktop.png" title="Sparkl default desktop" alt="Sparkl default desktop" /></p>
 
@@ -42,13 +42,55 @@
 
 <p><img src="http://joshid.github.io/images/pdf-export/PDF-Export-About.png" title="Aplication About Description" alt="Aplication About Description" /></p>
 
-<p>Now select &ldquo;Elements&rdquo; tab and click in &ldquo;Add New Element&rdquo;. Set a name for the element, select &ldquo;Kettle Endpoint&rdquo; and &ldquo;Clean Job&rdquo; in template. Now click on &ldquo;+&rdquo; button to add it to our application.</p>
+<p>Select &ldquo;Elements&rdquo; tab and click in &ldquo;Add New Element&rdquo;. Set a name for the element, select &ldquo;Kettle Endpoint&rdquo; as element type and &ldquo;Clean Job&rdquo; in template. Now click on &ldquo;+&rdquo; button to add it to our application.</p>
 
 <p><img src="http://joshid.github.io/images/pdf-export/Spark-Kettle-Element.png" title="Sparkl Kettle Element" alt="Sparkl Kettle Element" /></p>
 
-<p>Now you can check your brand new Job in the directory:</p>
+<p>You can check your brand new Job in the directory:</p>
 
 <p><code>"biserver"/pentaho-solutions/system/"app_name"/endpoints/kettle/"element".kjb</code></p>
+
+<p><strong>Step 3: Edit Kettle Job</strong></p>
+
+<p>Open the Job with Spoon and you&rsquo;ll see a very simple Job with only &ldquo;Start&rdquo; and &ldquo;Success&rdquo; steps.
+Your final Job will look as the following image:</p>
+
+<p><img src="http://joshid.github.io/images/pdf-export/PDFExport-Job.png" title="PDF Export Main Job" alt="PDF Export Main Job" /></p>
+
+<p>Our Kettle endpoint will use 3 variables in order to generate PDF file:</p>
+
+<ol>
+<li>URL to render in PDF</li>
+<li>Pentaho BIServer directory</li>
+<li>Name of PDF file generated</li>
+</ol>
+
+
+<p>We&rsquo;re going to call the endpoint using these params so we need to set them in the Job. This is the purpose of the first step, a transformation with variables initialization:</p>
+
+<p><img src="http://joshid.github.io/images/pdf-export/Job-Init-Vars.png" title="Job variables initialization" alt="Job variables initialization" /></p>
+
+<p>Next step is a simple Javascript evaluation to know if our installation is Linux or Windows, because we&rsquo;re going to use a library call and the script depends on the platform. The code needed to know if the installation is based on linux or windows is:</p>
+
+<p><code>is_windows</code></p>
+
+<p>If true then we&rsquo;re going to use a branch based on Windows scripting and if false then we&rsquo;ll use a Linux script.</p>
+
+<p>Next step is where &ldquo;magic&rdquo; happens. We&rsquo;re going to use PhantomJS to render our PDF file. The step execute a shell script with following code:</p>
+
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib\phantomjs.exe rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code>
+in case of Windows branch</p>
+
+<p><code>./phantomjs rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code>
+in case of Linux branch</p>
+
+<p>We must to set Working Directory in the step to</p>
+
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib</code>
+in case of Windows</p>
+
+<p><code>${PENTAHO_FOLDER}/tomcat/webapps/pentaho/phantomjs-lib</code>
+in case of Linux</p>
 ]]></content>
   </entry>
   
