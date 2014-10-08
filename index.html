@@ -147,23 +147,19 @@ Your final Job will look as the following image:</p>
 
 <p>Next step is where &ldquo;magic&rdquo; happens. We&rsquo;re going to use PhantomJS to render our PDF file. The step execute a shell script with following code:</p>
 
-<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib\phantomjs.exe rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code></p>
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib\phantomjs.exe rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code><br/>
+(<em>in case of Windows branch</em>)</p>
 
-<p>(<em>in case of Windows branch</em>)</p>
-
-<p><code>./phantomjs rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code></p>
-
-<p>(<em>in case of Linux branch</em>)</p>
+<p><code>./phantomjs rasterize.js "${URL_PARAMS}" ${FILE_NAME} A4</code><br/>
+(<em>in case of Linux branch</em>)</p>
 
 <p>We must to set Working Directory in the step to</p>
 
-<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib</code></p>
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib</code><br/>
+(<em>in case of Windows</em>)</p>
 
-<p>(<em>in case of Windows</em>)</p>
-
-<p><code>${PENTAHO_FOLDER}/tomcat/webapps/pentaho/phantomjs-lib</code></p>
-
-<p>(<em>in case of Linux</em>)</p>
+<p><code>${PENTAHO_FOLDER}/tomcat/webapps/pentaho/phantomjs-lib</code><br/>
+(<em>in case of Linux</em>)</p>
 
 <p>In last step (PDFFile Transformation) we need to copy our generated PDF file to result.</p>
 
@@ -179,7 +175,7 @@ Your final Job will look as the following image:</p>
 
 <p>Before we can test the Job we must set a couple of things. First, set Parameters of the Job (double click on empty space in spoon) to force Kettle output to ResultFiles. Remove # in cpk.response.kettleOutput parameter and set the default value to ResultFiles.</p>
 
-<p>The second thing to do is to copy PhantomJS library in Pentaho folder: tomcat/webapps/pentaho/phantomjs-lib.
+<p>The second thing to do is to copy PhantomJS library in Pentaho folder: tomcat/webapps/pentaho/phantomjs-lib.<br/>
 Download PhantomJS in: <a href="http://phantomjs.org/download.html">http://phantomjs.org/download.html</a></p>
 
 <p>You need phantomjs.exe, phantomjs and rasterize.js files. <strong>checkout files permissions after copy them</strong></p>
