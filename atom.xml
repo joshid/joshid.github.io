@@ -4,7 +4,7 @@
   <title><![CDATA[Dynambi]]></title>
   <link href="http://joshid.github.io/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-08T22:39:38+02:00</updated>
+  <updated>2014-10-08T22:43:04+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -24,7 +24,7 @@
 
 <p>In order to export our dashboards to PDF we only need the endpoint part but we&rsquo;ll build a small dashboard so we can test the endpoint.</p>
 
-<p><img src="images/Pentaho-Marketplace.png" title="Pentaho Marketplace" alt="Pentaho Marketplace" /></p>
+<p><img src="http://joshid.github.io/images/Pentaho-Marketplace.png" title="Pentaho Marketplace" alt="Pentaho Marketplace" /></p>
 ]]></content>
   </entry>
   
