@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pentaho | Dynambi]]></title>
   <link href="http://joshid.github.io/blog/categories/pentaho/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-08T22:43:04+02:00</updated>
+  <updated>2014-10-08T23:13:27+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -18,13 +18,37 @@
     <link href="http://joshid.github.io/blog/2014/10/08/test/"/>
     <updated>2014-10-08T00:40:15+02:00</updated>
     <id>http://joshid.github.io/blog/2014/10/08/test</id>
-    <content type="html"><![CDATA[<p><strong>Step 1: Configure SparkL</strong></p>
+    <content type="html"><![CDATA[<p><strong>Step 1: Configure Sparkl</strong></p>
 
 <p>Sparkl is a plugin creator instrument that sits on 2 major cornerstones of Pentaho: Ctools and PDI, aiming to leverage as much as possible of our existing stack. Dashboards are used for the front-end part and PDI (named Endpoints in sparkl) are used for the back-end logic.</p>
 
 <p>In order to export our dashboards to PDF we only need the endpoint part but we&rsquo;ll build a small dashboard so we can test the endpoint.</p>
 
-<p><img src="/images/Pentaho-Marketplace.png" title="Pentaho Marketplace" alt="Pentaho Marketplace" /></p>
+<p>First of all you must install Sparkl using Pentaho Marketplace. Be sure to install dependencies: CDF, CDA, CDE and CGG. <em>It&rsquo;s recommended to have installed same version of CTools (14.07.29 STABLE in my case)</em></p>
+
+<p><img src="/images/pdf-export/Pentaho-Marketplace.png" title="Pentaho Marketplace" alt="Pentaho Marketplace" /></p>
+
+<p>Restart your BI Server and access Sparkl using the menu Tools as shown in image below.</p>
+
+<p><img src="/images/pdf-export/Sparkl-menu.png" title="Sparkl menu" alt="Sparkl menu" /></p>
+
+<p>Now you have initial Sparkl desktop with a default aplication:</p>
+
+<p><img src="/images/pdf-export/sparkl-desktop.png" title="Sparkl default desktop" alt="Sparkl default desktop" /></p>
+
+<p><strong>Step 2: Create Sparkl Aplication</strong></p>
+
+<p>Now it&rsquo;s time to create the aplication! Let&rsquo;s click on &ldquo;Add&rdquo; button and fill the Aplication Description.</p>
+
+<p><img src="/images/pdf-export/PDF-Export-About.png" title="Aplication About Description" alt="Aplication About Description" /></p>
+
+<p>Now select &ldquo;Elements&rdquo; tab and click in &ldquo;Add New Element&rdquo;. Set a name for the element, select &ldquo;Kettle Endpoint&rdquo; and &ldquo;Clean Job&rdquo; in template. Now click on &ldquo;+&rdquo; button to add it to our application.</p>
+
+<p><img src="/images/pdf-export/Spark-Kettle-Element.png" title="Sparkl Kettle Element" alt="Sparkl Kettle Element" /></p>
+
+<p>Now you can check your brand new Job in the directory:</p>
+
+<p><code>"biserver"/pentaho-solutions/system/"app_name"/endpoints/kettle/"element".kjb</code></p>
 ]]></content>
   </entry>
   
