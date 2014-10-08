@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Dynambi]]></title>
-  <link href="http://joshid.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Pentaho | Dynambi]]></title>
+  <link href="http://joshid.github.io/blog/categories/pentaho/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
   <updated>2014-10-08T22:39:38+02:00</updated>
   <id>http://joshid.github.io/</id>
