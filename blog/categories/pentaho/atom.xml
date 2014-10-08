@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pentaho | Dynambi]]></title>
   <link href="http://joshid.github.io/blog/categories/pentaho/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-08T23:59:53+02:00</updated>
+  <updated>2014-10-09T00:24:01+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -95,6 +95,25 @@ Your final Job will look as the following image:</p>
 <p><code>${PENTAHO_FOLDER}/tomcat/webapps/pentaho/phantomjs-lib</code></p>
 
 <p>(<em>in case of Linux</em>)</p>
+
+<p>In last step (PDFFile Transformation) we need to copy our generated PDF file to result.</p>
+
+<p><img src="/images/pdf-export/Job-Copy-File.png" title="Job Copy File To Result" alt="Job Copy File To Result" /></p>
+
+<p>In &ldquo;Get File Name&rdquo; step we use following selected file:</p>
+
+<p><code>${PENTAHO_FOLDER}\tomcat\webapps\pentaho\phantomjs-lib\${FILE_NAME}</code></p>
+
+<p>and then add a step to copy files to result.</p>
+
+<p><strong>Step 4: Finishing Kettle Job</strong></p>
+
+<p>Before we can test the Job we must set a couple of things. First, set Parameters of the Job (double click on empty space in spoon) to force Kettle output to ResultFiles. Remove # in cpk.response.kettleOutput parameter and set the default value to ResultFiles.</p>
+
+<p>The second thing to do is to copy PhantomJS library in Pentaho folder: tomcat/webapps/pentaho/phantomjs-lib.
+Download PhantomJS in: <a href="http://phantomjs.org/download.html">http://phantomjs.org/download.html</a></p>
+
+<p>You need phantomjs.exe, phantomjs and rasterize.js files. <strong>checkout files permissions after copy them</strong></p>
 ]]></content>
   </entry>
   
