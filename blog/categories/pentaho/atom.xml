@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pentaho | Dynambi]]></title>
   <link href="http://joshid.github.io/blog/categories/pentaho/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-10T22:59:28+02:00</updated>
+  <updated>2014-10-10T23:00:04+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -159,8 +159,8 @@ function f() {</p>
 <p><img src="/images/pdf-export/Dashboard-URL.png" title="Copy Dashboard URL" alt="Copy Dashboard URL" /></p>
 
 <p>References:<br/>
-1. <a href="http://www.osbi.fr/exporter-en-pdf-des-dashboards-pentaho-cde-avec-phantomjs/">http://www.osbi.fr/exporter-en-pdf-des-dashboards-pentaho-cde-avec-phantomjs/</a>
-2. <a href="http://diethardsteiner.blogspot.com.es/2014/02/sparkl-create-your-own-app-for-pentaho.html">http://diethardsteiner.blogspot.com.es/2014/02/sparkl-create-your-own-app-for-pentaho.html</a>
+1. <a href="http://www.osbi.fr/exporter-en-pdf-des-dashboards-pentaho-cde-avec-phantomjs/">http://www.osbi.fr/exporter-en-pdf-des-dashboards-pentaho-cde-avec-phantomjs/</a><br/>
+2. <a href="http://diethardsteiner.blogspot.com.es/2014/02/sparkl-create-your-own-app-for-pentaho.html">http://diethardsteiner.blogspot.com.es/2014/02/sparkl-create-your-own-app-for-pentaho.html</a><br/>
 3. <a href="http://fcorti.com/pentaho-sparkl/kettle-endpoint-sparkl-pentaho/">http://fcorti.com/pentaho-sparkl/kettle-endpoint-sparkl-pentaho/</a></p>
 
 <p>Happy coding!</p>
