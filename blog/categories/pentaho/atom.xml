@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pentaho | Dynambi]]></title>
   <link href="http://joshid.github.io/blog/categories/pentaho/atom.xml" rel="self"/>
   <link href="http://joshid.github.io/"/>
-  <updated>2014-10-10T12:29:38+02:00</updated>
+  <updated>2014-10-10T13:07:09+02:00</updated>
   <id>http://joshid.github.io/</id>
   <author>
     <name><![CDATA[Jose N.Hidalgo]]></name>
@@ -122,6 +122,42 @@ Download PhantomJS in: <a href="http://phantomjs.org/download.html">http://phant
 <p>If something goes wrong check the log, common errors are typos or file permissions.</p>
 
 <p><img src="/images/pdf-export/pentaho-landing.png" title="Pentaho Landing page in PDF" alt="Pentaho Landing page in PDF" /></p>
+
+<p><strong>Step 5: Exporting your Dashboard</strong></p>
+
+<p>I&rsquo;ve developed a Dashboard for a project (don&rsquo;t worry about NDA. It&rsquo;s dummy data) and the client want to export it to PDF.<br/>
+I have the sparkl app up &amp; running but how can I call it from CDE?? Well, there is several ways to do that, best way is using &ldquo;datasource&rdquo; property in Button Component that execute endpoint. You have Success and Failure callbacks properties to add functions to handle function returns.</p>
+
+<p><img src="/images/pdf-export/Button-Component.png" title="Pentaho Button Component" alt="Pentaho Button Component" /></p>
+
+<p>Other way is to use Expression property to build the call to our endpoint. All we need to do is invoke endpoint passing params in query:</p>
+
+<p><code>http://biserver-ip:8080/pentaho/plugin/pdfExport/api/pdfJob&amp;paramurlParamsParameter=http://pentaho.com&amp;paramfileParamsParameter=pentaho-landing.pdf&amp;parampentahoParamsParameter=/opt/pentaho/biserver-ce</code><br/>
+<em>same result that previous kitchen call</em></p>
+
+<p>So we write that function in Expression property in Button Component:</p>
+
+<p>`function f() {</p>
+
+<p>  var newURL = &ldquo;<a href="http://">http://</a>&rdquo; + window.location.host + Dashboards.getWebAppPath();
+  var url = newURL + &lsquo;/plugin/pdfExport/api/pdfJob?bypassCache=true&rsquo;;
+  url += &lsquo;&amp;paramurlParamsParameter=&rsquo; + encodeURIComponent(urlParamsParameter);
+  url += &lsquo;&amp;paramfileParamsParameter=&rsquo; + fileParamsParameter;
+  url += &lsquo;&amp;parampentahoParamsParameter=&rsquo; + pentahoParamsParameter;</p>
+
+<p>  window.open(url,&lsquo;PDF Export&rsquo;,&lsquo;toolbar=0,resizable=1,location=0,status=0&rsquo;);</p>
+
+<p>}`</p>
+
+<p>&lsquo;urlParamsParameter&rsquo;, &lsquo;fileParamsParameter&rsquo; and &lsquo;pentahoParamsParameter&rsquo; are Simple Parameters where you can set your values in order to export whatever you want.</p>
+
+<p>Usually you want to set &lsquo;pentahoParamsParameter&rsquo; to your biserver-ce installation folder, &lsquo;fileParamsParameter&rsquo; to a fixed file name and &lsquo;urlParamsParameter&rsquo; to your Dashboard URL. How can you get your Dashboard URL? easy&hellip; double click on Tab to open on a new window and copy URL to the parameter.</p>
+
+<p><img src="/images/pdf-export/Open-New-Tab.png" title="Opening Dashboard in new Window" alt="Opening Dashboard in new Window" /></p>
+
+<p><img src="/images/pdf-export/Dashboard-URL.png" title="Copy Dashboard URL" alt="Copy Dashboard URL" /></p>
+
+<p>Happy coding!</p>
 ]]></content>
   </entry>
   
